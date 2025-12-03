@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Pixelify+Sans:wght@400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&family=Pixelify+Sans:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&family=Pixelify+Sans:wght@400..700&display=swap');
+@import 'tailwindcss';
+@import '@splidejs/svelte-splide/css';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+@plugin 'flowbite/plugin';
+@source "../node_modules/simple-datatables/dist";
+@source "../node_modules/@flowbite-svelte-plugins/datatable/dist";
+@source "../node_modules/@flowbite-svelte-plugins/chart/dist";
+
+.datatable-pagination .datatable-active a,
+.datatable-pagination .datatable-active a:focus,
+.datatable-pagination .datatable-active a:hover,
+.datatable-pagination .datatable-active button,
+.datatable-pagination .datatable-active button:focus,
+.datatable-pagination .datatable-active button:hover {
+  background-color: #ffe4de;
+  cursor: default;
+}
+
+.datatable-wrapper .datatable-table tbody tr.selected {
+  background-color: #fff1ee !important;
+}
+
+
+
+
+
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary-50: #fff5f2;
+  --color-primary-100: #fff1ee;
+  --color-primary-200: #ffe4de;
+  --color-primary-300: #ffd5cc;
+  --color-primary-400: #ffbcad;
+  --color-primary-500: #fff;
+  --color-primary-600: #202841;
+  --color-primary-700: #0f265e;
+  --color-primary-800: #191d72;
+  --color-primary-900: #06043f;
+  /* --color-gray-900: #1e1e1e; */
+  /* --color-gray-600: #364153; */
+  --color-gray-800: #1e1e1e;
+  --color-secondary-50: #f0f9ff;
+  --color-secondary-100: #e0f2fe;
+  --color-secondary-200: #bae6fd;
+  --color-secondary-300: #7dd3fc;
+  --color-secondary-400: #38bdf8;
+  --color-secondary-500: #0ea5e9;
+  --color-secondary-600: #0284c7;
+  --color-secondary-700: #0369a1;
+  --color-secondary-800: #075985;
+  --color-secondary-900: #0c4a6e;
+
+  --shadow-around-inset: inset 0px 0px 20px 1px rgb(13 13 14);
+  --shadow-around-outset: 0px 0px 9px 0px rgb(13 13 14);
+  --shadow-sidebar: 6px 11px 11px 11px rgb(13 13 14);
+  --shadow-content: inset 7px 6px 13px 7px rgb(13 13 14);
+  --shadow-anime-bg: inset 0px -20px 20px 3px rgba(18, 18, 29, 1);
+  /* --shadow-mainpage-anime-carousel: 5px 5px 9px 8px #1f1f1f; */
+  --shadow-episode-anime-card: 7px 6px 4px 0px rgb(22 22 23);
+
+
+
+
+
+
+
+
+  --font-roboto: "Roboto", "sans-serif";
+  --font-oswald: "Oswald", "sans-serif";
+  --font-inter: "Inter", "sans-serif";
+  --font-inder: "Inder", "sans-serif";
+
+}
+
+@source "../node_modules/flowbite-svelte/dist";
+@source "../node_modules/flowbite-svelte-icons/dist";
+
+@layer base {
+
+  /* disable chrome cancel button */
+  input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+  }
+
+}
+
+@layer utilities {
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    @apply appearance-none;
+  }
+}
+
+
+.anime-mobile-card-episode {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: visible;
+  z-index: 0;
+}
+
+
+.anime-mobile-card-episode::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  height: 80%;
+  left: 0;
+  width: 100%;
+  background-color: #0E131CA6;
+  mix-blend-mode: plus-lighter;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+.member-card {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  background: #1f1f1f;
+  overflow: visible;
+  z-index: 0;
+}
+
+.stretchthisfuckingdiv {
+  height: -moz-available;
+  height: -webkit-fill-available;
+  /* height: -moz-available; */
+  height: fill-available;
+  height: stretch;
+}
+
+
+
+
+
+
+
+.member-card::before {
+  content: '';
+  position: absolute;
+  background-color: var(--before-bg);
+  top: 35%;
+  height: 75%;
+  left: 0;
+  width: 100%;
+  /* border-radius: 10px; */
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  z-index: -1;
+}
+
+
+.\[\&\>input\]\:input-vertical {
+  &>input {
+    writing-mode: vertical-lr;
+    direction: rtl;
+    appearance: slider-vertical;
+    vertical-align: bottom;
+  }
+}
+
+.input-vertical {
+  writing-mode: vertical-lr;
+  direction: rtl;
+  appearance: slider-vertical;
+  vertical-align: bottom;
+}
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  input[type='range'] {
+    overflow: hidden;
+    width: 10px;
+    -webkit-appearance: none;
+    background-color: #424242;
+    /* border-radius: 10px; */
+  }
+
+  input[type='range']::-webkit-slider-runnable-track {
+    height: 5px;
+    -webkit-appearance: none;
+    color: #686868;
+    /* margin-top: -1px; */
+    border-radius: 10px;
+  }
+
+  input[type='range']::-webkit-slider-thumb {
+    width: 10px;
+    -webkit-appearance: none;
+    height: 50px;
+    cursor: ew-resize;
+    background: #434343;
+    box-shadow: -80px 0 0 80px #686868;
+    border-radius: none;
+  }
+
+}
+
+/** FF*/
+input[type="range"]::-moz-range-progress {
+  background-color: #686868;
+}
+
+input[type="range"]::-moz-range-track {
+  background-color: #424242;
+}
+
+/* Error page styles */
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.error-image {
+  width: 50%;
+  height: auto;
+}
+
+.error-text {
+  font-family: var(--font-oswald);
+  color: white;
+  font-size: clamp(1rem, 3.5vw, 1.875rem);
+}
+
+/* Responsive text sizing for xl breakpoint */
+@media (min-width: 1280px) {
+  .error-text {
+    font-size: 1.875rem;
+    /* xl:text-3xl equivalent */
+  }
+}

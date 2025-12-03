@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #1a1919;">
+
+<head>
+    <meta charset="utf-8" />
+    <title>%sveltekit.error.message%</title>
+    <link rel="stylesheet" href="/app.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&family=Pixelify+Sans:wght@400..700&display=swap"
+        rel="stylesheet">
+</head>
+<style>
+    .error-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .error-image {
+        width: 50%;
+        height: auto;
+    }
+
+    .error-text {
+        font-family: var(--font-oswald);
+        color: white;
+        font-size: clamp(2.5rem, 3.5vw, 1.875rem);
+        font-family: 'Oswald', sans-serif;
+    }
+
+    /* Responsive text sizing for xl breakpoint */
+    @media (min-width: 1280px) {
+        .error-text {
+            font-size: 1.875rem;
+            /* xl:text-3xl equivalent */
+        }
+    }
+</style>
+
+<body
+    style="min-height: 100vh;background-color: #1a1919; margin: 0!important; padding: 0!important; display: flex; justify-content: center; align-items: center;">
+    <div style="max-width: 1440px;">
+        
+        <div id="notfound" style="display: none;">
+            <div class="error-container">
+                <img src="/404.webp" alt="404" class="error-image">
+                <span class="error-text">Niestety
+                    strona na którą próbujesz wejść
+                    nie istnieje…</span>
+            </div>
+
+        </div>
+        <div id="serverror" style="display: none;">
+            <div class="error-container">
+                <img src="/500.webp" alt="500" class="error-image" />
+                <span class="error-text">Na stronie wystąpił błąd...</span>
+            </div>
+
+        </div>
+
+        <script>
+            if ("%sveltekit.status%" === "404") {
+                let notfound = document.getElementById("notfound");
+                if (notfound) {
+                    notfound.style.display = "block";
+                    console.log("%sveltekit.error.message%");
+                }
+            }
+            if ("%sveltekit.status%" === "500") {
+                let serverror = document.getElementById("serverror");
+                if (serverror) {
+                    serverror.style.display = "block";
+                    console.log("%sveltekit.error.message%");
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>
